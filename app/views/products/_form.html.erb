@@ -1,7 +1,7 @@
   <%= simple_form_for(@product) do |p| %>
     <%= p.input :name %>
     <%= p.input :description %>
-    <%= p.input :category %>
+    <%= p.input :category, :collection => %w[Music Cloth XXXX YYYY] %>
     <%= p.input :price %>
     <%= p.input :location %>
     <%= p.submit class:"btn btn-primary btn-block" %>
