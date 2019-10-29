@@ -1,22 +1,24 @@
 
 
 <div class="container d-flex">
-	<div class="product-img">
-	<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext" %>
-</div>
-	<div class="info">
+	<div class="col-6">
+		<div class="product-img">
+		<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext" %>
+		</div>
+			<div class="card mr-3 my-3" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Description</h5>
+					<p class="card-text"><%= @product.description %></p>
+				</div>
+			</div>
+	</div>
+	<div class="col-6">
     <h1 class="display-4"><%= @product.name%></h1>
 		<div class="details">
 			<div class="d-flex">
 				<h2>$<%=@product.price %></h2>
 				<i class="fas fa-star"></i> * 5
 				<i></i>
-			</div>
-			<div class="card mr-3 my-3" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Description</h5>
-					<p class="card-text"><%= @product.description %></p>
-				</div>
 			</div>
 		</div>
 		<div>
