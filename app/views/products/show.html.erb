@@ -3,9 +3,9 @@
 <div class="container my-3">
 	<div class="row">
 	 <div class="col-md-5 offset-md-1">
-		<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext", class:"w-100" %>
+		<%= cl_image_tag @product.photo, alt: "alttext", class:"w-100" %>
 		<div class="d-flex my-3 align-content">
-			<img alt="" class="avatar mr-3" src="https://avatars2.githubusercontent.com/u/54744328?v=4">
+			<img alt="" class="avatar mr-3" src="https://avatars2.githubusercontent.com/u/54744328?v=4" width="40" height="40">
 			<p><%= current_user.name %></p>
 		</div>
 		<div class="card my-3">
@@ -26,29 +26,17 @@
 	</div>
 </div>
 <div>
+ <%= link_to edit_product_path do %>
+    <button type="button" class="btn btn-primary">Edit Product</button>
+  <% end %>
+<br>
+<br>
+<br>
+<br>
+TODO: form to booking
 
- <form>
-	<fieldset disabled>
-	 <div class="form-group">
-		 <%= simple_form_for(@product) do |p| %>
-			<%= p.input :name %>
-	    <%= p.input :description %>
-	    <%= p.input :price  %>
-	    <%= p.input :category%>
-	 		<%= p.input :location %>
 
-		 <div class="form-check">
-			 <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
-			 <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" >
-			 <label class="form-check-label" >
-				Can't check this
-			</label>
-		</div>
-		<%= p.submit class:"btn btn-primary btn-block" %>
-		<% end %>
-	</div>
-</fieldset>
-</form>
+
 </div>
 </div>
 </div>

@@ -1,3 +1,5 @@
+<div class= "container h">
+
   <%= simple_form_for(@product) do |p| %>
     <% if @product.errors.any? %>
       <div class="errors-container">
@@ -10,10 +12,11 @@
     <% end %>
     <%= p.input :name %>
     <%= p.input :description %>
-    <%= p.input :category %>
+    <%= p.input :category, :collection => %w[Music cccc yyyyy] %>
     <%= p.input :price %>
     <%= p.input :location %>
     <%= p.input :photo %>
     <%= p.input :photo_cache, as: :hidden %>
     <%= p.submit class:"btn btn-primary btn-block" %>
   <% end %>
+</div>

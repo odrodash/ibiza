@@ -36,12 +36,9 @@ ActiveRecord::Schema.define(version: 2019_10_29_190239) do
     t.string "return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-=======
     t.string "photo"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_products_on_user_id"
->>>>>>> 6cc1bb771e7d726d39c4e00916011cc2a4dc8bd8
   end
 
   create_table "users", force: :cascade do |t|
