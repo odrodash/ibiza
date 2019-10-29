@@ -1,0 +1,51 @@
+
+
+<div class="container d-flex">
+	<div class="product-img">
+	<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext" %>
+</div>
+	<div class="info">
+    <h1 class="display-4"><%= @product.name%></h1>
+		<div class="details">
+			<div class="d-flex">
+				<h2>$<%=@product.price %></h2>
+				<i class="fas fa-star"></i> * 5
+				<i></i>
+			</div>
+			<div class="card mr-3 my-3" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">Description</h5>
+					<p class="card-text"><%= @product.description %></p>
+				</div>
+			</div>
+		</div>
+		<div>
+
+			<form>
+				<fieldset disabled>
+					<div class="form-group">
+						<label for="disabledTextInput">Booking Date</label>
+						<input type="text" id="disabledTextInput" class="form-control" placeholder="Start 25/01">
+						<input type="text" id="disabledTextInput" class="form-control" placeholder="End 27/01">
+					</div>
+					<div class="form-group">
+						<label for="disabledSelect">Disabled select menu</label>
+						<select id="disabledSelect" class="form-control">
+							<option>quantity</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+							<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+							<label class="form-check-label" for="disabledFieldsetCheck">
+								Can't check this
+							</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">Submit</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
