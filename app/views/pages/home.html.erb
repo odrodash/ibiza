@@ -1,128 +1,45 @@
-<div class="imagenes">
-     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1530014671970-707f86eb10f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Alquiler para Fiestas</h3>
-            <p>La mas completa variedad de opciones para tu evento</p>
-          </div>
+
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Todo lo que necesitas para tu fiesta en un solo lugar!</h1>
         </div>
-        <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1425421598808-4a22ce59cc97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Alquiler de Moviliario</h3>
-            <p>Todo lo que necesitas para tu fiesta en un solo lugar</p>
-          </div>
-        </div>
-        <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1490576198307-6ff97609a0cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Alquiler de Fiesta</h3>
-            <p>Vos festejas, nosotros te ayudamos con la fiesta</p>
-          </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <%= simple_form_for @product do |f| %>
+              <div class="col-12 col-md-4 align-items-center">
+                <%= f.input :name, label: false, placeholder: 'Ingresa un producto' %>
+              </div>
+                <div class="col-12 col-md-4 align-items-center">
+                    <%= f.input :category, prompt:"Ingresa Categoria", collection: [ "Decoracion", "Audio", "Mobiliario"], label: false, placeholder: 'Selecciona Categoria' %>
+              </div>
+              <div class="col-12 col-md-3 align-items-center">
+                <%= f.button :submit, "Buscar", class: "btn btn-primary btn-block"%>
+              </div>
+            </div>
+            <% end %>
+          </form>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+  </header>
+
+
+<h1 class="my-5 text-center"><strong>Bienvenido a IBIZA</strong></h1>
+
+
+
+
+<h2 class="my-4 text-center">Portfolio Productos</h2>
+
+
+<div class="cards">
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <%= render 'shared/cards', product: product  %>
+    <% end %>
+  <% end %>
 </div>
-
-<h1 class="my-4 text-center"><strong>Bienvenido a IBIZA</strong></h1>
-
-
-
-
-<h2>Portfolio Productos</h2>
-
-    <div class="row">
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "Metegol.jpeg" , style: 'height:700; width:400;' %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Metegol</a>
-            </h4>
-            <p class="card-text">Juego de mesa de football.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "MesaDeBillar.jpg", style: 'height:700; width:400;' %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Pool</a>
-            </h4>
-            <p class="card-text">Mesa de Pool, de todos los tamaños</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "Calefactores.jpg" %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Calefactores</a>
-            </h4>
-            <p class="card-text">Incluye garrafa de 10 kg con un rendimiento de aproximadamente 8 hs</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "Living.jpg" %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Livings y de Mini Livings</a>
-            </h4>
-            <p class="card-text">Se pueden utilizar para cualquier Evento, Cumpleaños o Reuniones donde se quiera destacar a los invitados!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "mueblesLed.jpg" %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Muebles Led</a>
-            </h4>
-            <p class="card-text">Contamos con una amplia variedad de muebles, sillones, puff, mesas , huevos de decoración, mesas y banquetas altas de cocktail, módulos de barra de tragos y mucho mas.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#">
-          <%= image_tag "karaoke.jpg" %>
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Equipo de Karaoke</a>
-            </h4>
-            <p class="card-text">Disfruta viendo a tus amigos divertirse contigo, nuestro servicio incluye el armado, el asesoramiento y la instalación del mismo.</p>
-          </div>
-        </div>
-      </div>
-    </div>
