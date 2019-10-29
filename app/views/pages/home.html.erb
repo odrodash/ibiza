@@ -10,10 +10,10 @@
           <form>
             <div class="form-row">
               <%= simple_form_for @product do |f| %>
-              <div class="col-12 col-md-3 align-items-center">
+              <div class="col-12 col-md-4 align-items-center">
                 <%= f.input :name, label: false, placeholder: 'Ingresa un producto' %>
               </div>
-                <div class="col-12 col-md-3 align-items-center">
+                <div class="col-12 col-md-4 align-items-center">
                     <%= f.input :category, prompt:"Ingresa Categoria", collection: [ "Decoracion", "Audio", "Mobiliario"], label: false, placeholder: 'Selecciona Categoria' %>
               </div>
               <div class="col-12 col-md-3 align-items-center">
@@ -35,8 +35,11 @@
 
 <h2 class="my-4 text-center">Portfolio Productos</h2>
 
+
 <div class="cards">
-  <%= @products.each do |product| %>
-  <%= render 'shared/cards', product: product  %>
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <%= render 'shared/cards', product: product  %>
+    <% end %>
   <% end %>
 </div>
