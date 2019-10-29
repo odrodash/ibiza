@@ -9,6 +9,9 @@
 				<div class="card-body">
 					<h5 class="card-title">Description</h5>
 					<p class="card-text"><%= @product.description %></p>
+          <% if policy(Product).edit? %>
+          <%= link_to "edit",edit_product_path %>
+          <% end %>
 				</div>
 			</div>
 	</div>

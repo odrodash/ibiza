@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
       redirect_to product_path(@product)
     else
       render :new
+      authorize @product
     end
   end
 
@@ -46,6 +47,7 @@ class ProductsController < ApplicationController
 
   def products_params
     params.require(:product).permit(:name, :description, :category, :available, :price, :state, :location, :delivery, :return, :photo)
+    authorize @product
   end
 end
 
