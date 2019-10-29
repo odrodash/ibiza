@@ -2,14 +2,9 @@
 
 <div>
   <h2>New Product</h2>
-  <%= simple_form_for(@product) do |p| %>
-    <%= p.input :name %>
-    <%= p.input :description %>
-    <%= p.input :category %>
-    <%= p.input :price %>
-    <%= p.input :location %>
-    <%= p.submit class:"btn btn-primary btn-block" %>
-  <% end %>
+
+<%= render 'form.html.erb' %>
 </div>
+
 </div>
 
