@@ -3,9 +3,11 @@
 <div class="container d-flex">
 	<div class="col-6">
 		<div class="product-img">
-		<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext" %>
+		  <a href="">
+      <%= cl_image_tag @product.photo, width: 500, height: 400, alt: "alttext" %>
+      </a>
 		</div>
-			<div class="card mr-3 my-3" style="width: 18rem;">
+			<div class="card mr-3 my-3" style="width: 500;">
 				<div class="card-body">
 					<h5 class="card-title">Description</h5>
 					<p class="card-text"><%= @product.description %></p>
