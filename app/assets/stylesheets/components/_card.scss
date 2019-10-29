@@ -1,21 +1,29 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-gap: 20px;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.card {
+
+.product-card {
+  background-color: white;
   padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  size: 100x100;
-  border-radius: 5px;
+ padding-bottom: 10px;
+ padding-left: 10px;
+ padding-right: 10px;
+ size: 100x100;
+ border-radius: 5px;
+
+ img {
+  width: 100%;
+  height: 300px;
+ }
 }
 
-.card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-
+.product-card h2{
+   font-size: 16px;
+ font-weight: bold;
+ margin: 0;
 }
