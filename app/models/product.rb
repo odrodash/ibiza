@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   # validates :available, presence: true
   # validates :delivery, presence: true
   validates :price, presence: true
-
+  DELIVERY = ["Recibirlo (recargo +10%)", "Pasar a buscarlo"]
   # validates :cocktail, uniqueness: { scope: :ingredient, message: "only allows letters" }
 
   def self.results(name, category)
