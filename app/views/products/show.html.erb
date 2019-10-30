@@ -4,7 +4,7 @@
       <%= cl_image_tag @product.photo, alt: "alttext", class:"w-100" %>
       <div class="d-flex my-3 align-content">
         <img alt="" class="avatar mr-3" src="https://avatars2.githubusercontent.com/u/54744328?v=4" width="40" height="40">
-        <p><%= current_user.name %></p>
+        <p><%= @product.user.name %></p>
       </div>
       <div class="card my-3">
         <div class="card-body">
