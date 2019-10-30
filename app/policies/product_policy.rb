@@ -3,10 +3,17 @@ class ProductPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def update?
-      record.user == user
-    end
+  def create?
+    true
+  end
 
+  def show?
+    return true
+  end
+
+  def update?
+    return record.user == user
   end
 end

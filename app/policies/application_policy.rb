@@ -8,7 +8,8 @@ class ApplicationPolicy
 
   def index?
     false
-  end
+  #   user.owner? || user.editor? || user.viewer?
+   end
 
   def show?
     false
