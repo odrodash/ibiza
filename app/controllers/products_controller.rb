@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: :results
+  skip_before_action :authenticate_user!, only: [:show, :results]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,7 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def results
-    @products = Product.results(params[:product], params[:category])
+    @products = policy_scope(Product).results(params[:product], params[:category])
   end
 
   private
@@ -58,4 +59,3 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :category, :available, :price, :state, :location, :delivery, :return, :photo, :start, :end)
   end
 end
-
