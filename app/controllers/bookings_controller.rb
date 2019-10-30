@@ -6,18 +6,17 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    @booked_at = params["booking"]["booked_at"]
     @product = Product.find(params["product_id"])
+    @booking = Booking.new(product: @product, booked_at: @booked_at, user: current_user)
     authorize @booking
   end
 
   def create
-    @booking = Booking.new
     @product = Product.find(params["product_id"])
-    @booking.product = @product
-    @booking.user = current_user
-    @booking.save
-    redirect_to booking_path(@booking)
+    @booking = Booking.new(booked_at: params["format"], product: @product, user: current_user)
     authorize @booking
+    return redirect_to @booking if @booking.save
+    render :new
   end
 end

@@ -3,8 +3,13 @@
   <div class="my-3">
     <%= cl_image_tag(@product.photo, width: 400, height: 400, crop: :thumb)  %>
   </div>
-  <pOwner <%= @product.user.name %></p>
-  <p >Category: <%= @product.category %></p>
+  <p>Owner <%= @product.user.name %></p>
+  <p>Category: <%= @product.category %></p>
   <%= link_to  'Confirm Booking', product_bookings_path(@product), method: :post, class: 'btn btn-primary' %>
+  <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
+    <%= f.button :submit, "Confirm", class: "btn btn-primary" %>
+  <% end %>
+   <%#= link_to  'Confirmar Alquiler', product_bookings_path(@product, @booking), method: :post, class: 'btn btn-danger' %>
+
 </div>
 

@@ -25,14 +25,16 @@
       </div>
       <div>
           <%= simple_form_for :booking, url: new_product_booking_path(@product), method: 'get' do |f| %>
-            <%= f.input :booked_at, as: :string, required: false, input_html: {id: "range_start"} %>
-            <%= f.button :submit, "Booking", class: "btn btn-primary " %>
+
+            <%= f.input :booked_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, "Booking", class: "btn btn-primary" %>
           <% end %>
           <% if policy(@product).edit? %>
             <%= link_to 'Update', edit_product_path(@product), class: "btn btn-primary my-3"  %>
           <% end %>
           <% if policy(@product).edit? %>
             <%= link_to 'Edit Product', edit_product_path  %>
+
           <% end %>
       </div>
     </div>
