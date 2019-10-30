@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
   get 'results', to: 'products#results', as: :results
   resources :bookings, only: [:destroy]
+  resources :users
 
 end
