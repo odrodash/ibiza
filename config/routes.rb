@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :bookings, only: [ :new, :create, :show ]
   end
+  get 'results', to: 'products#results', as: :results
   resources :bookings, only: [:destroy]
 
 end

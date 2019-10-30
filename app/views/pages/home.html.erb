@@ -9,15 +9,15 @@
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form>
             <div class="form-row">
-              <%= simple_form_for @product do |f| %>
+              <%= simple_form_for(@product) do |f| %>
               <div class="col-12 col-md-4 align-items-center">
                 <%= f.input :name, label: false, placeholder: 'Ingresa un producto' %>
               </div>
                 <div class="col-12 col-md-4 align-items-center">
-                    <%= f.input :category, prompt:"Ingresa Categoria", collection: [ "Decoracion", "Audio", "Mobiliario"], label: false, placeholder: 'Selecciona Categoria' %>
+                  <%= f.input :category, prompt:"Ingresa Categoria", collection: [ "Decoracion", "Audio", "Mobiliario", "Music", "Juegos"], label: false, placeholder: 'Selecciona Categoria' %>
               </div>
               <div class="col-12 col-md-3 align-items-center">
-                <%= f.button :submit, "Buscar", class: "btn btn-primary btn-block"%>
+                  <%= f.submit "Buscar", class: "btn btn-primary btn-block", id:"home-search" %>
               </div>
             </div>
             <% end %>
