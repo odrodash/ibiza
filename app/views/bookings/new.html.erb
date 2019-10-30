@@ -1,6 +1,9 @@
-hola
-<%= @product.name %>
-<%= @product.user.email %>
-<%= cl_image_tag(@product.photo, width: 150, height: 150, crop: :thumb)  %>
-<%= @product.category %>
-<%= link_to  'Confirmar Alquiler', product_bookings_path(@product), method: :post %>
+<div class="container">
+  <h3>Alquiler de: <p><%= @product.name %></p></h3>
+  <div>
+    <%= cl_image_tag(@product.photo, width: 150, height: 150, crop: :thumb)  %>
+  </div>
+  <p>Dueño: <%= @product.user.email %></p>
+  <p>Categoria: <%= @product.category %></p>
+  <%= link_to  'Confirmar Alquiler', product_bookings_path(@product), method: :post, class: 'btn btn-danger' %>
+</div>
