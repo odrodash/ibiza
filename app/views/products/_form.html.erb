@@ -1,0 +1,9 @@
+<%= simple_form_for @product do |f| %>
+  <div class="form-group string required product_name form-group-valid">
+    <label class="string required" for="product_name">Quantity
+    </label>
+    <input class="form-control is-valid string required" type="text" value="testing" name="product[quantity]" id="product_quantity">
+  </div>
+  <%= f.input :delivery, as: :radio_buttons, collection: Product::DELIVERY %>
+  <%= f.button :submit, class: 'btn btn-danger' %>
+<% end %>

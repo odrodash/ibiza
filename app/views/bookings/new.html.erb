@@ -1,0 +1,6 @@
+hola
+<%= @product.name %>
+<%= @product.user.email %>
+<%= cl_image_tag(@product.photo, width: 150, height: 150, crop: :thumb)  %>
+<%= @product.category %>
+<%= link_to  'Alquilar', product_bookings_path(@product), method: :post %>
