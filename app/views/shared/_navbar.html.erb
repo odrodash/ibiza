@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <%= link_to root_path do %>
     <%= image_tag "124010.png", width: 30, heihgt: 30 %>
   <% end %>
@@ -11,13 +11,46 @@
       <li class="nav-item active">
         <a class="nav-link ml-4 mt-1" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <%= link_to root_path do %>
-        <i class="fab fa-twitter "></i>
-      <% end %>
     </ul>
 
     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="avatar"
             alt="avatar image" height="35">
   </div>
 </nav>
+ -->
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">IBIZA</a>
+<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Add Product", new_product_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <img class="avatar" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"  />
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+  </div>
+  <% end %>
+
+</nav>
