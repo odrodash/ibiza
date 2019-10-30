@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     # @product.available = false
     authorize @product
     @product.destroy
-    redirect_to products_path
+    redirect_to user_path(current_user)
 
   end
 
