@@ -40,9 +40,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.available = false
-    @product.update
+    # @product.available = false
+    authorize @product
+    @product.destroy
     redirect_to products_path
+
   end
 
   def results
