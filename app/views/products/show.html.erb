@@ -4,7 +4,7 @@
 		<%= cl_image_tag @product.photo, alt: "alttext", class:"w-100" %>
 		<div class="d-flex my-3 align-content">
 			<img alt="" class="avatar mr-3" src="https://avatars2.githubusercontent.com/u/54744328?v=4" width="40" height="40">
-			<p><%= current_user.name %></p>
+      <p><%= @product.user.name %></p>
 		</div>
 		<div class="card my-3">
 			<div class="card-body">
@@ -22,22 +22,14 @@
 		<%== '<i class="fas fa-star"></i>' * 2 %>
 		<%== '<i class="far fa-star"></i>' * 3 %>
 	</div>
+  <div>
+    <% if user_signed_in? %>
+      <% if policy(@product).edit? %>
+       <%= link_to "edit", edit_product_path(@product), class:"btn btn-primary" %>
+      <% end %>
+    <% end %>
+    </div>
 </div>
 <div>
- <%= link_to edit_product_path do %>
-    <button type="button" class="btn btn-primary">Edit Product</button>
-  <% end %>
-<br>
-<br>
-<br>
-<br>
+
 TODO: form to booking
-
-
-
-</div>
-</div>
-</div>
-</div>
-
-
