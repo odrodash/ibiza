@@ -1,7 +1,10 @@
-thanks for renting th product ...
 
+<div class="container text-center">
+<h3> Congratulations<p><%= @booking.user.email %>!</p></h3>
+<div class="my-3">
+<h3>You rent: <%= @booking.product.name %></h3>
+<div class="my-3">
+  <%= cl_image_tag @booking.product.photo, width: 300, height: 300, crop: :thumb %>
+</div>
 
-hola
-<%= @booking.user.email %>
-<%= @booking.product.name %>
-
+</div>
