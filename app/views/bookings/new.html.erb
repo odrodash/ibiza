@@ -1,9 +1,10 @@
-<div class="container">
-  <h3>Alquiler de: <p><%= @product.name %></p></h3>
-  <div>
-    <%= cl_image_tag(@product.photo, width: 150, height: 150, crop: :thumb)  %>
+<div class="container text-center">
+  <h3 class="f my-4">Do you want to rent this <strong><%= @product.name %></strong>?</h3>
+  <div class="my-3">
+    <%= cl_image_tag(@product.photo, width: 400, height: 400, crop: :thumb)  %>
   </div>
-  <p>Dueño: <%= @product.user.email %></p>
-  <p>Categoria: <%= @product.category %></p>
-  <%= link_to  'Confirmar Alquiler', product_bookings_path(@product), method: :post, class: 'btn btn-danger' %>
+  <pOwner <%= @product.user.name %></p>
+  <p >Category: <%= @product.category %></p>
+  <%= link_to  'Confirm Booking', product_bookings_path(@product), method: :post, class: 'btn btn-primary' %>
 </div>
+
