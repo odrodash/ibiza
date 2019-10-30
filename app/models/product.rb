@@ -12,6 +12,9 @@ class Product < ApplicationRecord
   DELIVERY = ["Recibirlo (recargo +10%)", "Pasar a buscarlo"]
   # validates :cocktail, uniqueness: { scope: :ingredient, message: "only allows letters" }
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   def self.results(name, category)
     return Product.where(["name LIKE ? and category = ?", "%#{name}%", category])
   end
