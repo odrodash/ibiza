@@ -28,7 +28,9 @@
             <%= f.input :booked_at, as: :string, required: false, input_html: {id: "range_start"} %>
             <%= f.button :submit, "Booking", class: "btn btn-primary" %>
           <% end %>
-          <%= link_to 'Edit Product', edit_product_path  %>
+          <% if policy(@product).edit? %>
+            <%= link_to 'Edit Product', edit_product_path  %>
+          <% end %>
       </div>
     </div>
   </div>
