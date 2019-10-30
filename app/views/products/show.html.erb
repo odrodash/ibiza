@@ -37,25 +37,44 @@
 	<div class="col-6">
 		<div class="product-img">
 		<%= image_tag "https://images.unsplash.com/photo-1562886371-4bd5aa480645?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", alt: "alttext" %>
+=======
+<div class="container my-3">
+	<div class="row">
+	 <div class="col-md-5 offset-md-1">
+		<%= cl_image_tag @product.photo, alt: "alttext", class:"w-100" %>
+		<div class="d-flex my-3 align-content">
+			<img alt="" class="avatar mr-3" src="https://avatars2.githubusercontent.com/u/54744328?v=4" width="40" height="40">
+			<p><%= current_user.name %></p>
+>>>>>>> master
 		</div>
-			<div class="card mr-3 my-3" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Description</h5>
-					<p class="card-text"><%= @product.description %></p>
-				</div>
-			</div>
+		<div class="card my-3">
+			<div class="card-body">
+			 <h5 class="card-title">Description</h5>
+			 <p class="card-text"><%= @product.description %></p>
+		 </div>
+	 </div>
+ </div>
+ <div class="col-md-5">
+	<h1 class="display-4"><%= @product.name%></h1>
+	<p class="mt-1"><%= @product.category %></p>
+	<div class="details">
+	 <div class="d-flex">
+		<h2 class="mr-3">$<%=@product.price %></h2>
+		<%== '<i class="fas fa-star"></i>' * 2 %>
+		<%== '<i class="far fa-star"></i>' * 3 %>
 	</div>
-	<div class="col-6">
-    <h1 class="display-4"><%= @product.name%></h1>
-		<div class="details">
-			<div class="d-flex">
-				<h2>$<%=@product.price %></h2>
-				<i class="fas fa-star"></i> * 5
-				<i></i>
-			</div>
-		</div>
-		<div>
+</div>
+<div>
+ <%= link_to edit_product_path do %>
+    <button type="button" class="btn btn-primary">Edit Product</button>
+  <% end %>
+<br>
+<br>
+<br>
+<br>
+TODO: form to booking
 
+<<<<<<< HEAD
 			<form>
 				<fieldset enable>
 					<div class="form-group">

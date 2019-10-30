@@ -1,9 +1,33 @@
-<%= simple_form_for @product do |f| %>
-  <div class="form-group string required product_name form-group-valid">
+
+<%#= simple_form_for @product do |f| %>
+<!--   <div class="form-group string required product_name form-group-valid">
     <label class="string required" for="product_name">Quantity
     </label>
     <input class="form-control is-valid string required" type="text" value="testing" name="product[quantity]" id="product_quantity">
-  </div>
-  <%= f.input :delivery, as: :radio_buttons, collection: Product::DELIVERY %>
-  <%= f.button :submit, class: 'btn btn-danger' %>
-<% end %>
+  </div -->>
+  <%#= f.input :delivery, as: :radio_buttons, collection: Product::DELIVERY %>
+  <%#= f.button :submit, class: 'btn btn-danger' %>
+<%# end %>
+<div class= "container">
+  <%= simple_form_for(@product) do |p| %>
+    <% if @product.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= p.input :name %>
+    <%= p.input :description %>
+    <%= p.input :category %>
+    <%= p.input :price %>
+    <%= p.input :location %>
+    <%= p.input :photo %>
+    <%= p.input :photo_cache, as: :hidden %>
+    <%= p.input :start, as: :string, required: false, input_html: {id: "range_start"} %>
+    <%= p.input :end, as: :string, required: false, input_html: {id: "range_end"} %>
+    <%= p.submit class:"btn btn-primary btn-block" %>
+  <% end %>
+</div>
