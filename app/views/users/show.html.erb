@@ -15,7 +15,7 @@
       </div>
       <div class="d-flex m-3 align-items-center">
         <%= link_to "Edit", edit_product_path(product), class:"btn btn-primary btn-lg px-4" %>
-        <%= link_to "Delete", edit_product_path(product), class:"btn btn-primary btn-lg px-4" %>
+        <%= link_to "Delete", product_path(product), method: :delete, class:"btn btn-primary btn-lg px-4" %>
       </div>
       <div>
         <h2 class="align-self-end"> $ <%= product.price %></h2>

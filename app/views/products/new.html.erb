@@ -15,7 +15,7 @@
       <% end %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <%= f.input :category %>
+      <%= f.input :category, collection: [ "Decoracion", "Audio", "Mobiliario", "Music", "Juegos"] %>
       <%= f.input :price %>
       <%= f.input :location %>
       <%= f.input :photo %>
