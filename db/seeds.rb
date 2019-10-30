@@ -8,6 +8,8 @@
 
 require 'faker'
 
+categories = ["Decoracion", "Audio", "Mobiliario", "Music", "Juegos"]
+
 puts "Creating users and products"
 2.times do
   name = Faker::Name.unique.name
@@ -22,7 +24,7 @@ puts "Creating users and products"
   5.times do
     puts "creating a new poduct"
     name = Faker::Commerce::product_name
-    category = Faker::Beer.brand
+    category = categories[rand(0..4)]
     description = "This product is for renting. The category is #{category}"
     photo = Unsplash::Photo.search("#{name}").first
     product = Product.new(
