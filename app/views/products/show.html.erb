@@ -24,13 +24,9 @@
         </div>
       </div>
       <div>
-          <%#= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= simple_form_for new_product_booking_path(@product) do |f| %>
-            <%= f.input :start, as: :string, required: false, input_html: {id: "range_start"} %>
-            <%#= f.submit class:"btn btn-primary btn-block" %>
-          <% end %>
-          <%= link_to new_product_booking_path(@product) do |f|  %>
-          <button type="button" class="btn btn-primary">Booking</button>
+          <%= simple_form_for :booking, url: new_product_booking_path(@product), method: 'get' do |f| %>
+            <%= f.input :booked_at, as: :string, required: false, input_html: {id: "range_start"} %>
+            <%= f.button :submit, "Booking", class: "btn btn-primary" %>
           <% end %>
           <%= link_to 'Edit Product', edit_product_path  %>
       </div>
