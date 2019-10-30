@@ -3,20 +3,13 @@
   <div class="row justify-content-center">
     <div class="">
       <div class="cards">
-        <% @products.each do |product|  %>
-
-        <div class="card-product" >
-
-          <div class="product-body">
-             <h2><%= product.name %></h2>
-            <h2><%= product.price %></h2>
-            <p><%= product.description %> </p>
-          </div>
-        </div>
-        <% end  %>
+       <% @products.each do |product| %>
+         <%= link_to product_path(product) do %>
+           <%= render 'shared/cards', product: product  %>
+         <% end %>
+       <% end %>
       </div>
     </div>
   </div>
 </div>
-
 
