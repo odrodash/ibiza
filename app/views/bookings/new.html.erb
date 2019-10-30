@@ -3,7 +3,12 @@
   <div>
     <%= cl_image_tag(@product.photo, width: 150, height: 150, crop: :thumb)  %>
   </div>
+  <p>Fecha de alquiler: <%= @booked_at %></p>
   <p>Dueño: <%= @product.user.email %></p>
   <p>Categoria: <%= @product.category %></p>
-  <%= link_to  'Confirmar Alquiler', product_bookings_path(@product), method: :post, class: 'btn btn-danger' %>
+
+  <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
+    <%= f.button :submit, "Confirm", class: "btn btn-primary" %>
+  <% end %>
+   <%#= link_to  'Confirmar Alquiler', product_bookings_path(@product, @booking), method: :post, class: 'btn btn-danger' %>
 </div>

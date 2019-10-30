@@ -1,4 +1,7 @@
-hola
-<%= @booking.user.email %>
-<%= @booking.product.name %>
-
+<div class="container text-center mt-5 pt-5">
+  <h2>Tu Recibo</h2>
+  <p>Usuario: <%= @booking.user.email %></p>
+  <p>Producto: <%= @booking.product.name %></p>
+  <p>Fecha de alquiler: <%= @booking.booked_at %></p>
+    <%= link_to 'Thank you', root_path, class: 'btn btn-danger btn-lg' %>
+</div>
