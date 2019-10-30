@@ -11,4 +11,10 @@ class Product < ApplicationRecord
   validates :price, presence: true
   DELIVERY = ["Recibirlo (recargo +10%)", "Pasar a buscarlo"]
   # validates :cocktail, uniqueness: { scope: :ingredient, message: "only allows letters" }
+
+  def self.results(name, category)
+    products = []
+    products = Product.where(["name LIKE ? and category = ?", "%#{name}%", category])
+    return products
+  end
 end
