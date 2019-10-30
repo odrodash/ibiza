@@ -49,6 +49,14 @@ class ProductsController < ApplicationController
 
   def results
     @products = policy_scope(Product).results(params[:product], params[:category])
+    # @products = Products.geocoded #returns products with coordinates
+
+    # @markers = @products.map do |product|
+    #   {
+    #     lat: product.latitude,
+    #     lng: product.longitude
+    #   }
+    #end
   end
 
   private
@@ -59,6 +67,6 @@ class ProductsController < ApplicationController
   end
 
   def products_params
-    params.require(:product).permit(:name, :description, :category, :available, :price, :state, :location, :delivery, :return, :photo, :start, :end)
+    params.require(:product).permit(:name, :description, :category, :available, :price, :state, :location, :latitude, :longitude, :delivery, :return, :photo, :start, :end)
   end
 end
