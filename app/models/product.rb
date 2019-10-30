@@ -13,8 +13,6 @@ class Product < ApplicationRecord
   # validates :cocktail, uniqueness: { scope: :ingredient, message: "only allows letters" }
 
   def self.results(name, category)
-    products = []
-    products = Product.where(["name LIKE ? and category = ?", "%#{name}%", category])
-    return products
+    return Product.where(["name LIKE ? and category = ?", "%#{name}%", category])
   end
 end
