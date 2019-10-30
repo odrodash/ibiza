@@ -43,6 +43,10 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def results
+    @products = Product.results(params[:product], params[:category])
+  end
+
   private
 
   def set_product
