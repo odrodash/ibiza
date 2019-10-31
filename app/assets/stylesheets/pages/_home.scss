@@ -1,50 +1,45 @@
 // Specific CSS for your home-page
-
-.h1{
-  font-family: 'Droid Serif';
-  font-size: 40px;
-  font-style: bold;
-}
-
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+background-color:white;
 }
 
 h1{
-  font-size: 5.5rem;
+  font-size: 40;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+h2 {
+  font-size: 24;
+}
+h3{
+  font-size:20;
+}
+h4{
+  font-size:14;
+}
+h5{
+  font-size:12;
+  color:gray;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+  text-decoration: none;
+  color:black;
 }
 
 header.masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url("https://images.unsplash.com/photo-1530014671970-707f86eb10f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80") no-repeat center center;
+  background-color: #000;
+  background: url("https://henparties.kateandtoms.com/wp-content/uploads/2013/01/The-Curve-27.4.15-27-1600x900.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
 
-header.masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}
-
-header.masthead h1 {
-  font-size: 2rem;
-}
 
 @media (min-width: 768px) {
   header.masthead {
@@ -55,4 +50,59 @@ header.masthead h1 {
     font-size: 3rem;
   }
 }
+
+// Estilo para el landing
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+
+#landing-effect-text {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  font-size:50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-shadow: 0px 0px 10px white;
+  color: white;
+}
+
+#landing-effect-text:first-of-type {    /* For increasing performance
+                       ID/Class should've been used.
+                       For a small demo
+                       it's okaish for now */
+  animation: showup 7s infinite;
+}
+
+#landing-effect-text:last-of-type {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+#landing-effect-text:last-of-type span {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+}
+
 

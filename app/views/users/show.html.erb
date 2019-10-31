@@ -3,7 +3,7 @@
 <div class="container">
 <!-- una card -->
   <div class="card-trip m-3">
-    <img src="https://source.unsplash.com/collection/1163637/512x300" />
+    <%= cl_image_tag product.photo %>
     <div class="card-trip-infos">
       <div class="m-3">
         <h2><%= product.name %></h2>

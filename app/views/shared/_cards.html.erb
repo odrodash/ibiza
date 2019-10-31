@@ -1,8 +1,15 @@
 <div class="product-card">
     <%= cl_image_tag product.photo %>
     <div class="card-content">
-      <h2><%=  product.name %></h2>
-      <p><%= product.category %></p>
-      <p><%= product.description %></p>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h2 id="title"><%= product.name %></h2>
+          <p id="category"><%= product.category %></p>
+        </div>
+        <div id="price">
+          <span>$ <%= product.price %></span>
+        </div>
+      </div>
+        <p><%= product.description %></p>
     </div>
   </div>
