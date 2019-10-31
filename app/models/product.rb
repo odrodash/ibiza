@@ -15,7 +15,9 @@ class Product < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  def self.results(name, category)
-    return Product.where(["name LIKE ? and category = ?", "%#{name}%", category])
+  def self.search(query)
+    sql_query = "name @@ :query OR category @@ :query"
+    where(sql_query, query: "%#{query}%")
   end
+
 end

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+
   resources :bookings, only: [:destroy, :show] do
     resources :reviews, only: [:new, :create]
   end
+  
+  get 'search', to: 'products#search', as: :search
 
-  get 'results', to: 'products#results', as: :results
 end
