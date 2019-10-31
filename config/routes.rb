@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :bookings, only: [:destroy, :show]
-  get 'results', to: 'products#results', as: :results
+  get 'search', to: 'products#search', as: :search
 end
