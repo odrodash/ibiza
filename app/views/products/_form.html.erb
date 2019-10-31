@@ -21,7 +21,7 @@
     <% end %>
     <%= p.input :name %>
     <%= p.input :description %>
-    <%= p.input :category, :collection => %w[Music Audio Decoracion Mobiliario Juegos] %>
+    <%= p.input :category, :collection => Product::CATEGORY %>
     <%= p.input :price %>
     <%= p.input :location %>
     <%= p.input :photo %>
