@@ -1,21 +1,23 @@
-<div class="container">
-<%= render 'shared/searcher'  %>
-</div>
-<h2 class="my-4 text-center">Busqueda de Alquiler de Productos</h2>
+<div class="d-flex">
 
+  <div id="cards-wrapper" class="vh-100">
+    <div class="d-flex py-1 w-100 bg-white border-bottom-1 border-light mb-3 px-2">
+      <form action="/search" method="get" class="d-flex w-100">
+        <input type="text" name="product" class="flex-grow-1 border-0 pl-3" value="<%= @search["name"] %>" placeholder="search for ...">
+        <input type="submit" class="btn btn-primary" value="Search">
+      </form>
+    </div>
+    <div id="cards">
+      <% @products.each do |product| %>
+        <%= render "shared/card-product", product: product %>
+      <% end %>
+    </div>
+  </div>
 
-<div class="cards">
-  <% @products.each do |product| %>
-    <%= link_to product_path(product) do %>
-      <%= render 'shared/cards', product: product  %>
-    <% end %>
-  <% end %>
-</div>
-
-<!-- <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
+  <div id="map" class="vh-100"
+  style="width: 100%; height: 600px;"
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['pk.eyJ1IjoibGluZGFtc2UiLCJhIjoiY2sxbWltM3h5MDE1ZDNuczcxc3loOW9lYyJ9.RUUBSE0XEJeUAmdwy3ufEA'] %>"
-></div> -->
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
+</div>

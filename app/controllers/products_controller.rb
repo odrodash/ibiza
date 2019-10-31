@@ -44,19 +44,22 @@ class ProductsController < ApplicationController
     authorize @product
     @product.destroy
     redirect_to user_path(current_user)
-
   end
 
   def search
-    @products = policy_scope(Product).search(params[:product])
-    # @products = Products.geocoded #returns products with coordinates
+    @search = params["product"]
+    @search = params["product"]["name"] if @search.nil?
+    @products = policy_scope(Product).search(@search)
+    @products = @products.geocoded #returns products with coordinates
 
-    # @markers = @products.map do |product|
-    #   {
-    #     lat: product.latitude,
-    #     lng: product.longitude
-    #   }
-    #end
+    @markers = @products.map do |product|
+      {
+        lat: product.latitude,
+        lng: product.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { product: product }),
+        image_url: helpers.asset_url('mappin.png')
+      }
+    end
   end
 
   private
