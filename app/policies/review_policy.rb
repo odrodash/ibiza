@@ -1,18 +1,17 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
+
   def create?
     true
-  end
-
-  def update?
-    record.user == user
+    # return record.user == user
   end
 
   def show?
-    true
+    return true
   end
+
 end
