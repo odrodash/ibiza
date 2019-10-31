@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :bookings, only: [:destroy, :show]
+  resources :bookings, only: [:destroy, :show] do
+    resources :reviews, only: [:new, :create]
+  end
+
   get 'results', to: 'products#results', as: :results
 end
