@@ -1,15 +1,14 @@
 const initSearch = () => {
   const search = document.querySelector("#home-search")
   const product = document.querySelector("#product_name")
-  const category = document.querySelector("#product_category")
 
   if (search) {
     search.addEventListener("click", (event) => {
       event.preventDefault();
-      if (product.value === "" && category.value === "") {
-        alert("Please, complete the category and product field.")
+      if (product.value === "") {
+        alert("Please, complete the field.")
       } else {
-        location.href = `/results?product=${product.value}&category=${category.value}`
+        location.href = `/search?product=${product.value}`
       }
     })
   }

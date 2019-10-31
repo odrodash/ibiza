@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  skip_after_action :verify_authorized, only: :results
-  skip_before_action :authenticate_user!, only: [:show, :results]
+  skip_after_action :verify_authorized, only: :search
+  skip_before_action :authenticate_user!, only: [:show, :search]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -47,8 +47,8 @@ class ProductsController < ApplicationController
 
   end
 
-  def results
-    @products = policy_scope(Product).results(params[:product], params[:category])
+  def search
+    @products = policy_scope(Product).search(params[:product])
     # @products = Products.geocoded #returns products with coordinates
 
     # @markers = @products.map do |product|
