@@ -1,15 +1,17 @@
-<div class="container text-center">
-  <h3 class="f my-4">Do you want to rent this <strong><%= @product.name %></strong>?</h3>
-  <div class="my-3">
-    <%= cl_image_tag(@product.photo, width: 400, height: 400, crop: :thumb)  %>
+<div class="container">
+  <h2 class="f m-3">Confirm please to rent this <strong><%= @product.name %></strong>!</h2>
+  <div class="d-flex justify-content-left">
+    <div class="m-3">
+      <%= cl_image_tag(@product.photo, width: 400, height: 400, crop: :thumb)  %>
+    </div>
+    <div class="m-3">
+      <h5>Owner <%= @product.user.name %></h5>
+      <p>Category: <%= @product.category %></p>
+      <p>Date to Book: <%= @booking.booked_at %></p>
+      <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
+        <%= f.button :submit, "Confirm Booking", class: "btn btn-danger btn-lg mt-3" %>
+      <% end %>
+    </div>
   </div>
-  <p>Owner <%= @product.user.name %></p>
-  <p>Category: <%= @product.category %></p>
-  <%= link_to  'Confirm Booking', product_bookings_path(@product), method: :post, class: 'btn btn-primary' %>
-  <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
-    <%= f.button :submit, "Confirm", class: "btn btn-primary" %>
-  <% end %>
-   <%#= link_to  'Confirmar Alquiler', product_bookings_path(@product, @booking), method: :post, class: 'btn btn-danger' %>
-
 </div>
 
