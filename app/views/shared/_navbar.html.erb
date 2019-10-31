@@ -21,7 +21,7 @@
       <% end %>
     </ul>
     <% if user_signed_in? %>
-      <%= link_to edit_user_registration_path do%>
+      <%= link_to edit_user_registration_path, class: 'link_to_style' do%>
         <%= current_user.email %>
         <img class="avatar" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"  />
       <% end %>
