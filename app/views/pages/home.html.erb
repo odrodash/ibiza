@@ -1,31 +1,17 @@
 
-  <header class="masthead text-white text-center">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Todo lo que necesitas para tu fiesta en un solo lugar!</h1>
-        </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <%= simple_form_for(@product) do |f| %>
-              <div class="col-12 col-md-4 align-items-center">
-                <%= f.input :name, label: false, placeholder: 'Ingresa un producto' %>
-              </div>
-                <div class="col-12 col-md-4 align-items-center">
-                  <%= f.input :category, prompt:"Ingresa Categoria", collection: [ "Decoracion", "Audio", "Mobiliario", "Music", "Juegos"], label: false, placeholder: 'Selecciona Categoria' %>
-              </div>
-              <div class="col-12 col-md-3 align-items-center">
-                  <%= f.submit "Buscar", class: "btn btn-primary btn-block", id:"home-search" %>
-              </div>
-            </div>
-            <% end %>
-          </form>
-        </div>
+<header class="masthead text-white text-center">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <h1 class="mb-5">Todo lo que necesitas para tu fiesta en un solo lugar!</h1>
+      </div>
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+       <%= render "shared/searcher" %>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
 
 <h1 class="my-5 text-center"><strong>Bienvenido a IBIZA</strong></h1>
@@ -38,9 +24,9 @@
 
 <div class="cards">
   <% @products.each do |product| %>
-    <%= link_to product_path(product) do %>
-      <%= render 'shared/cards', product: product  %>
-    <% end %>
+  <%= link_to product_path(product) do %>
+  <%= render 'shared/cards', product: product  %>
+  <% end %>
   <% end %>
 </div>
 

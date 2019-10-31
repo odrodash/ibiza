@@ -1,27 +1,60 @@
-<% @user.products.each do |product| %>
 
 <div class="container">
-<!-- una card -->
-  <div class="card-trip m-3">
-    <img src="https://source.unsplash.com/collection/1163637/512x300" />
-    <div class="card-trip-infos">
-      <div class="m-3">
-        <h2><%= product.name %></h2>
-        <p><%= product.category %></p>
-      </div>
-      <div class="m-3">
-        <p><%= product.description %></p>
-        <p><%= product.location %></p>
-      </div>
-      <div class="d-flex m-3 align-items-center">
-        <%= link_to "Edit", edit_product_path(product), class:"btn btn-primary btn-lg px-4" %>
-        <%= link_to "Delete", product_path(product), method: :delete, class:"btn btn-primary btn-lg px-4" %>
-      </div>
-      <div>
-        <h2 class="align-self-end"> $ <%= product.price %></h2>
-      </div>
-      <img src="https://source.unsplash.com/collection/2013520/200x200" class="card-trip-user avatar-bordered" />
-    </div>
-  </div>
+	<ul class="list-inline nav tabs-underlined my-4" id="myTab" role="tablist">
+		<!-- una card -->
+		<li class="">
+			<a class="tab-underlined active" id="my-products-tab" data-toggle="tab" href="#my-products" role="tab" aria-controls="my-products" aria-selected="true">My Products</a>
+		</li>
+		<li class="">
+			<a  class="tab-underlined" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="true">Bookings</a>
+		</li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+		<div class="tab-pane fade show active" id="my-products" role="tabpanel" aria-labelledby="my-products-tab">
+			<% @user.products.each do |product| %>
+			<div class="card-trip m-3">
+			<%= image_tag product.photo.url%>
+				<div class="card-trip-infos">
+					<div class="m-3">
+						<h2><%= product.name %></h2>
+						<p><%= product.category %></p>
+					</div>
+					<div class="m-3">
+						<p><%= product.description %></p>
+						<p><%= product.location %></p>
+					</div>
+					<div class="d-flex m-3 align-items-center">
+						<%= link_to "Edit", edit_product_path(product), class:"btn btn-primary btn-lg px-4" %>
+						<%= link_to "Delete", product_path(product), method: :delete, class:"btn btn-primary btn-lg px-4" %>
+					</div>
+					<div>
+						<h2 class="align-self-end"> $ <%= product.price %></h2>
+					</div>
+					<img src="https://source.unsplash.com/collection/2013520/200x200" class="card-trip-user avatar-bordered" />
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
+			<% current_user.bookings.each do |booking| %>
+			<div class="card-trip m-3">
+				<div class="card-trip-infos">
+					<div class="m-3">
+						<h2><%= booking.product.name %></h2>
+							<%= image_tag booking.product.photo.url%>
+						<p><%= booking.product.category %></p>
+					</div>
+					<div class="m-3">
+						<p><%= booking.product.description %></p>
+						<p><%= booking.product.location %></p>
+					</div>
+					<div>
+						<h2 class="align-self-end"> $ <%= booking.product.price %></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
 </div>
-<% end %>
+
