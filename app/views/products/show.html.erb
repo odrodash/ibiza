@@ -19,11 +19,11 @@
       <div class="details">
         <div class="d-flex">
           <h2 class="mr-3 font-italic">$<%=@product.price %></h2>
-          <div>Rating: <%= @product.average_rating %>
+          <div>
           <% (1..5).each do |n| %>
             <% if n <= @product.average_rating %>
               <i class="fa fa-star"></i>
-            <% elsif 0 < @product.average_rating - n && @product.average_rating - n  < 1 %>
+            <% elsif 0 < n - @product.average_rating && n - @product.average_rating  < 1 %>
               <i class="fas fa-star-half-alt"></i>
             <% end %>
           <% end %>
