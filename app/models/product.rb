@@ -9,8 +9,9 @@ class Product < ApplicationRecord
   # validates :available, presence: true
   # validates :delivery, presence: true
   validates :price, presence: true
+
   DELIVERY = ["Recibirlo (recargo +10%)", "Pasar a buscarlo"]
-  # validates :cocktail, uniqueness: { scope: :ingredient, message: "only allows letters" }
+  CATEGORY = ["Audio", "Decoracion", "Mobiliario", "Juegos", "Luces", "Otros"]
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
@@ -20,4 +21,7 @@ class Product < ApplicationRecord
     where(sql_query, query: "%#{query}%")
   end
 
+  def bookings_dates
+    return bookings.map { |booking| booking.booked_at }
+  end
 end
