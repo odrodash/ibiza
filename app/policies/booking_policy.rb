@@ -4,17 +4,15 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
-def create?
-  true
-end
+  def create?
+    true
+  end
 
-def update?
-  return record.user == user
-end
+  def update?
+    record.user == user
+  end
 
-def show?
-  true
+  def show?
+    true
+  end
 end
-
-end
-
