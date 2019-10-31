@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   has_many :bookings
   belongs_to :user
   mount_uploader :photo, PhotoUploader
+  has_many :reviews, through: :bookings
 
   validates :name, presence: true
   validates :description, presence: true
@@ -23,5 +24,17 @@ class Product < ApplicationRecord
 
   def bookings_dates
     return bookings.map { |booking| booking.booked_at }
+  end
+
+  def average_rating
+    sum = 0
+    reviews.each do |review|
+      sum += review.rating unless review.rating.nil?
+    end
+    if reviews.count == 0
+      return 0
+    else
+      return sum / reviews.count
+    end
   end
 end
