@@ -11,7 +11,7 @@
 	</ul>
 	<div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="my-products" role="tabpanel" aria-labelledby="my-products-tab">
-    <div class = "mediatarjeta">
+    <div class = "cards">
   			<% @user.products.each do |product| %>
         <%= link_to product_path(product) do %>
         <%= render 'shared/card-product', product: product  %>
@@ -20,16 +20,16 @@
       </div>
     </div>
   <div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
-    <div class = "mediatarjeta">
+    <div class = "cards">
     <% current_user.bookings.each do |booking| %>
     <div class="card-product">
       <%= cl_image_tag booking.product.photo %>
       <div class="card-product-infos">
           <h2><%=  booking.product.name %></h2>
             <p><%= booking.product.category %></p>
-            <p><%= booking.product.description %></p>
+            <p><%= truncate(booking.product.description, :length => 20) %></p>
+      <%= link_to "Add a review", new_booking_review_path(booking), class: "btn btn-primary btn-sm" %>
       </div>
-      <%= link_to "Add a review", new_booking_review_path(booking), class:"btn btn-primary btn-block" %>
     </div>
     <% end %>
   </div>
