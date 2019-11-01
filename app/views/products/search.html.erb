@@ -9,7 +9,9 @@
     </div>
     <div id="cards">
       <% @products.each do |product| %>
-        <%= render "shared/card-product", product: product %>
+        <%= link_to product_path(product) do %>
+          <%= render "shared/card-product", product: product %>
+        <% end %>
       <% end %>
     </div>
   </div>

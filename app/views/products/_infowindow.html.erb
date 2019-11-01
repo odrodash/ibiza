@@ -1,3 +1,5 @@
-<h5><%= product.name %></h5>
+<%= link_to product_path(product) do %>
+  <h5><%= product.name %></h5>
+<% end %>
 <p><%= product.category %></p>
 <%= cl_image_tag product.photo, class: "image-windows"%>
