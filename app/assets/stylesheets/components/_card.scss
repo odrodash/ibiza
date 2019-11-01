@@ -1,3 +1,10 @@
+.mediatarjeta {
+  display:grid;
+  grid-template-columns: 1fr ;
+  width: 50% ;
+  margin: 0 auto;
+}
+
 
 .cards {
   display: grid;
