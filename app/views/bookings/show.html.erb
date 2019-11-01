@@ -1,14 +1,17 @@
-<div class="container text-center">
-
-  <h5> Congratulations <%= @booking.user.name %>!</h5>
+<div class="container ">
+  <div class="card text-white bg-dark my-3">
+    <div class="card-header">
+      <h2 class= "header"><strong>Congratulations <%= @booking.user.name %>!</strong>!</h2>
+    </div>
+  </div>
   <div class="d-flex align-items-center justify-content-center">
     <div class="card-bookings">
       <%= cl_image_tag @booking.product.photo, width: 300, height: 300, crop: :thumb %>
       <div class="card-bookings-infos">
-        <h2>Recipe</h2>
-        <h3>You rent: <%= @booking.product.name %></h3>
+        <h3><strong>Recipe</strong></h3>
+        <p>You rent: <%= @booking.product.name %></p>
         <p>Fecha de alquiler: <%= @booking.booked_at %></p>
-        <%= link_to 'Enjoy', root_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'Enjoy', root_path, class: 'btn btn-primary btn-lg  mt-3' %>
       </div>
     </div>
   </div>

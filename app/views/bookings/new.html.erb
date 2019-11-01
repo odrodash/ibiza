@@ -1,22 +1,21 @@
-<div class="container align-items-center">
-  <h2 id="prueba" >Confirm please to rent this <strong><%= @product.name %></strong>!</h2>
-  <div class="d-flex align-items-center justify-content-center">
-  <div class="card-bookings">
-    <%= cl_image_tag(@product.photo, crop: :thumb, id:"img-booking")  %>
-    <div class="card-bookings-infos">
+<div class="container">
+  <div class="card text-white bg-dark my-3">
+    <div class="card-header">
+      <h2 class= "header">Confirm please to rent this <strong><%= @product.name %></strong>!</h2>
+    </div>
+  </div>
 
-      <h5>Owner <%= @product.user.name %></h5>
-      <p>Category: <%= @product.category %></p>
-      <p>Date to Book: <%= @booking.booked_at %></p>
-      <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
-      <%= f.button :submit, "Confirm Booking", class: "btn btn-primary btn-lg mt-3" %>
-      <% end %>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="card-bookings">
+      <%= cl_image_tag @booking.product.photo, width: 300, height: 300, crop: :thumb %>
+      <div class="card-bookings-infos">
+        <h3><strong> Owner <%= @product.user.name%></strong></h3>
+        <p>Category: <%= @product.category %></p>
+        <p>Date to Book: <%= @booking.booked_at %></p>
+        <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
+          <%= f.button :submit, "Confirm Booking", class: "btn btn-primary btn-lg mt-3" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-</div>
-
-
-
-
-
