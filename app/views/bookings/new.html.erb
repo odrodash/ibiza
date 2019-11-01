@@ -1,17 +1,22 @@
-<div class="container">
-  <h2 class="f m-3">Confirm please to rent this <strong><%= @product.name %></strong>!</h2>
-  <div class="d-flex justify-content-left">
-    <div class="m-3">
-      <%= cl_image_tag(@product.photo, width: 400, height: 400, crop: :thumb)  %>
-    </div>
-    <div class="m-3">
+<div class="container align-items-center">
+  <h2 id="prueba" >Confirm please to rent this <strong><%= @product.name %></strong>!</h2>
+  <div class="d-flex align-items-center justify-content-center">
+  <div class="card-bookings">
+    <%= cl_image_tag(@product.photo, crop: :thumb, id:"img-booking")  %>
+    <div class="card-bookings-infos">
+
       <h5>Owner <%= @product.user.name %></h5>
       <p>Category: <%= @product.category %></p>
       <p>Date to Book: <%= @booking.booked_at %></p>
       <%= simple_form_for :booking, url: product_bookings_path(@product, @booked_at) do |f| %>
-        <%= f.button :submit, "Confirm Booking", class: "btn btn-danger btn-lg mt-3" %>
+      <%= f.button :submit, "Confirm Booking", class: "btn btn-primary btn-lg mt-3" %>
       <% end %>
     </div>
   </div>
 </div>
+</div>
+
+
+
+
 
