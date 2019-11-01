@@ -22,6 +22,10 @@
 			input_html: { autocomplete: "address" },
 			label: false,
 			placeholder: "Address"%>
+
+      <%= f.input :photo, label: false %>
+      <%= f.input :photo_cache, as: :hidden %>
+
 			<%= f.input :email,
 			required: true,
 			autofocus: true,

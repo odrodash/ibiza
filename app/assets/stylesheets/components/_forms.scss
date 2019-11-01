@@ -1,13 +1,15 @@
-// .div-center {
-//   // box-shadow: 2px 2px 2px rgba(0.5,0.5,0.5,0.5);
+.div-center {
+  // box-shadow: 2px 2px 2px rgba(0.5,0.5,0.5,0.5);
+  margin:0px;
+  padding:0px;
 
-// }
+}
 
 .form-signin {
     padding: 10px;
-    margin: 60px auto;
-    width: 100%;
-    max-width: 330px;
+    margin: 50px auto;
+    width: 540px;
+    max-width: 540px;
     padding: 15px;
     border: thick double #025AC1;
     // background: #eae9e9;
@@ -15,9 +17,9 @@
 
 .form-signup {
     padding: 10px;
-    margin: 60px auto;
-    width: 100%;
-    max-width: 400px;
+    margin: 50px auto;
+    width: 540px;
+    max-width: 540px;
     padding: 15px;
     border: thick double #025AC1;
 }

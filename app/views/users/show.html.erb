@@ -1,12 +1,12 @@
 
 <div class="container">
 	<ul class="list-inline nav tabs-underlined my-4" id="myTab" role="tablist">
-		<!-- una card -->
+<!-- una card -->
 		<li class="">
-			<a class="tab-underlined active" id="my-products-tab" data-toggle="tab" href="#my-products" role="tab" aria-controls="my-products" aria-selected="true">My Products</a>
+			<a class="tab-underlined active" id="my-products-tab" data-toggle="tab" href="#my-products" role="tab" aria-controls="my-products" aria-selected="true"><span id="tab-myuser">My Products</span></a>
 		</li>
 		<li class="">
-			<a  class="tab-underlined" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="true">Bookings</a>
+			<a  class="tab-underlined" id="my-bookings-tab" data-toggle="tab" href="#my-bookings" role="tab" aria-controls="my-bookings" aria-selected="true"><span id="tab-myuser">Bookings</span></a>
 		</li>
 	</ul>
 	<div class="tab-content" id="myTabContent">
@@ -25,9 +25,9 @@
     <div class="card-product">
       <%= cl_image_tag booking.product.photo %>
       <div class="card-product-infos">
-          <h2><%=  truncate(booking.product.name, :length =>15) %></h2>
-            <p><%= booking.product.category %></p>
-            <p><%= truncate(booking.product.description, :length => 20) %></p>
+          <h1><%=  truncate(booking.product.name, :length =>15) %></h1>
+          <p><%= booking.product.category %></p>
+          <p><%= truncate(booking.product.description, :length => 20) %></p>
       <%= link_to "Add a review", new_booking_review_path(booking), class: "btn btn-primary btn-sm" %>
       </div>
     </div>
