@@ -1,3 +1,10 @@
+#prueba{
+  background-color: rgba(0,0,0,0.8);
+  padding:40px 10px;
+  margin:0px;
+  border-radius:10px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
@@ -10,11 +17,14 @@
   overflow: hidden;
   height: 120px;
   background: white;
-  // box-shadow: 0px 0px 20px rgba(0,0,255,0.8);
+  box-shadow: 0px 0px 20px rgba(0,0,255,0.4);
   display: flex;
-  align-items: center;
+  align-items: top;
   border-radius:5px;
+}
 
+.card-product:hover {
+  box-shadow: 0px 0px 20px rgba(0,0,255,0.8);
 }
 
 .card-product img {
@@ -76,6 +86,6 @@
   background-color:#000752;
   color:#FDFF62;
   padding:3px 20px;
-  margin:0px;
+  margin:0 10px 0 0;
   border-radius:5px;
 }
