@@ -1,9 +1,12 @@
 <div class="card-product">
   <%= cl_image_tag product.photo %>
   <div class="card-product-infos">
-    <h2 id="title"><%=  product.name %></h2>
-      <p><%= product.category %></p>
-      <p id="subtitle"><%= product.description %></p>
+    <h2 id="title"><%= truncate(product.name, :length => 25) %></h2>
+      <div class="d-flex">
+        <p id="price"><span> $ <%= product.price %></span></p>
+        <p><%= product.category %></p>
+      </div>
+      <p id="subtitle"><%= truncate(product.description, :length => 75) %></p>
   </div>
 </div>
 
