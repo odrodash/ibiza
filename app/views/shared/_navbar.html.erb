@@ -23,6 +23,7 @@
     <% if user_signed_in? %>
       <%= link_to edit_user_registration_path, class: 'link_to_style' do%>
         <%= current_user.email %>
+        <%#= cl_image_tag current_user.photo, class: 'avatar' %>
         <img class="avatar" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"  />
       <% end %>
     <% end %>
