@@ -8,7 +8,7 @@ const initSearch = () => {
       if (product.value === "") {
         alert("Please, complete the field.")
       } else {
-        location.href = `/search?product=${product.value}`
+        location.href = `/search?name=${product.value}`
       }
     })
   }
