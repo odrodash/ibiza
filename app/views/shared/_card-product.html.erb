@@ -1,9 +1,9 @@
 <% if 0 < product.average_rating && product.average_rating < 3 %>
-  <div class="card-product border border-danger">
+  <div class="card-product2 border border-danger">
 <% elsif product.average_rating > 3 && product.average_rating < 5  %>
-  <div class="card-product border border-success">
+  <div class="card-product2 border border-success">
     <% else %>
-  <div class="card-product border border-success">
+  <div class="card-product2 border border-success">
 <% end %>
   <%= cl_image_tag product.photo %>
   <div class="card-product-infos">
