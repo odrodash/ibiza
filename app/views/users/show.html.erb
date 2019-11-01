@@ -10,53 +10,32 @@
 		</li>
 	</ul>
 	<div class="tab-content" id="myTabContent">
-		<div class="tab-pane fade show active" id="my-products" role="tabpanel" aria-labelledby="my-products-tab">
-			<% @user.products.each do |product| %>
-			<div class="card-trip m-3">
-      <%= image_tag product.photo.url%>
-        <div class="card-trip-infos">
-          <div class="m-3">
-            <h2><%= product.name %></h2>
-            <p><%= product.category %></p>
-          </div>
-          <div class="m-3">
-            <p><%= product.description %></p>
-            <p><%= product.location %></p>
-          </div>
-          <div class="d-flex m-3 align-items-center">
-            <%= link_to "Edit", edit_product_path(product), class:"btn btn-primary btn-lg px-4" %>
-            <%= link_to "Delete", product_path(product), method: :delete, class:"btn btn-primary btn-lg px-4" %>
-          </div>
-          <div>
-            <h2 class="align-self-end"> $ <%= product.price %></h2>
-          </div>
-          <img src="https://source.unsplash.com/collection/2013520/200x200" class="card-trip-user avatar-bordered" />
-        </div>
+      <div class="tab-pane fade show active" id="my-products" role="tabpanel" aria-labelledby="my-products-tab">
+    <div class = "cards">
+  			<% @user.products.each do |product| %>
+        <%= link_to product_path(product) do %>
+        <%= render 'shared/card-product', product: product  %>
+        <% end %>
+        <% end %>
       </div>
-      <% end %>
     </div>
-    <div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
-      <% current_user.bookings.each do |booking| %>
-      <div class="card-trip m-3">
-        <div class="card-trip-infos">
-          <div class="m-3">
-            <%= link_to "Add a review", new_booking_review_path(booking), class:"btn btn-primary btn-lg px-4" %>
-            <h2><%= booking.product.name %></h2>
-              <%= image_tag booking.product.photo.url%>
-						<p><%= booking.product.category %></p>
-					</div>
-					<div class="m-3">
-						<p><%= booking.product.description %></p>
-						<p><%= booking.product.location %></p>
-					</div>
-					<div>
-						<h2 class="align-self-end"> $ <%= booking.product.price %></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-		<% end %>
-	</div>
+  <div class="tab-pane fade" id="my-bookings" role="tabpanel" aria-labelledby="my-bookings-tab">
+    <div class = "cards">
+    <% current_user.bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag booking.product.photo %>
+      <div class="card-product-infos">
+          <h2><%=  booking.product.name %></h2>
+            <p><%= booking.product.category %></p>
+            <p><%= truncate(booking.product.description, :length => 20) %></p>
+      <%= link_to "Add a review", new_booking_review_path(booking), class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  </div>
+  </div>
 </div>
+
 
 

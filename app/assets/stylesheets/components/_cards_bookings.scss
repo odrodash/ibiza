@@ -1,0 +1,48 @@
+#prueba{
+  color: white;
+  align-items: center;
+  margin-top: 50px;
+}
+.card-bookings {
+  overflow: hidden;
+  height: 4 00px;
+  width: 800px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  border-radius: 10px;
+
+
+}
+
+.card-bookings #img-booking {
+  height: 250%;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.card-bookings h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-bookings p {
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 25px;
+  }
+
+.card-bookings .card-bookings-infos {
+  // padding: px;
+  margin: 0 px;
+  justify-text: center;
+  margin-left: 60px;
+}

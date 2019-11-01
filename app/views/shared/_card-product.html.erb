@@ -1,9 +1,18 @@
-<div class="card-product">
+<% if product.average_rating < 3 %>
+  <div class="card-product border border-danger">
+<% elsif product.average_rating > 3%>
+  <div class="card-product border border-success">
+    <% else %>
+  <div class="card-product border border-success">
+<% end %>
   <%= cl_image_tag product.photo %>
   <div class="card-product-infos">
-    <h2 id="title"><%=  product.name %></h2>
-      <p><%= product.category %></p>
-      <p id="subtitle"><%= product.description %></p>
+    <h2 id="title"><%= truncate(product.name, :length => 25) %></h2>
+      <div class="d-flex">
+        <p id="price"><span> $ <%= product.price %></span></p>
+        <p><%= product.category %></p>
+      </div>
+      <p id="subtitle"><%= truncate(product.description, :length => 75) %></p>
   </div>
 </div>
 

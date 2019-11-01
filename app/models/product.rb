@@ -27,14 +27,12 @@ class Product < ApplicationRecord
   end
 
   def average_rating
+    return 0 unless reviews.count.positive?
+
     sum = 0
     reviews.each do |review|
       sum += review.rating unless review.rating.nil?
     end
-    if reviews.count == 0
-      return 0
-    else
-      return sum / reviews.count
-    end
+    return sum / reviews.count
   end
 end

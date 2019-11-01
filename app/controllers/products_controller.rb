@@ -47,10 +47,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @search = params["product"]
-    @search = params["product"]["name"] if @search.nil?
-    @products = policy_scope(Product).search(@search)
-    @products = @products.geocoded #returns products with coordinates
+    @search = params["name"]
+    @products = policy_scope(Product).search(@search).geocoded
+    #returns products with coordinates
 
     @markers = @products.map do |product|
       {
