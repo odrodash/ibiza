@@ -1,4 +1,8 @@
-<div class="product-card">
+<% if product.average_rating < 1 %>
+  <div class="product-card border-success">
+<% else %>
+  <div class="product-card border-success">
+<% end %>
   <%= cl_image_tag product.photo %>
   <div class="card-content">
     <div class="d-flex justify-content-between">
@@ -14,3 +18,4 @@
       <p><%= product.average_rating %></p>
     </div>
   </div>
+

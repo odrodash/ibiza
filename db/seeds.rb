@@ -8,6 +8,13 @@
 
 require 'faker'
 
+puts "Destroying all seeds"
+Review.destroy_all
+Booking.destroy_all
+Product.destroy_all
+User.destroy_all
+
+puts "Creating new seeds"
 categories = ["Decoracion", "Audio", "Mobiliario", "Music", "Juegos"]
 
 puts "Creating users and products"
@@ -39,3 +46,5 @@ puts "Creating users and products"
     product.save!
   end
 end
+
+puts "Finished seeding process"
