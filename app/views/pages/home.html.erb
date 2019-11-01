@@ -12,16 +12,9 @@
     </div>
   </div>
 </header>
-
-
-<h1 class="my-5 text-center"><strong>Wellcome to IBIZA</strong></h1>
-
-
-
-
-<h2 class="my-4 text-center">Most recently uploads</h2>
-
-
+<div class="subtitle text-center">
+  <%= cl_image_tag "bg_kdbi2y" %>
+</div>
 <div class="cards">
   <% @products.each do |product| %>
   <%= link_to product_path(product) do %>
