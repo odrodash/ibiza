@@ -3,7 +3,7 @@
 
 			<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 			<div class="form-inputs">
-			  <h2>Log in</h2>
+			  <h2 class="text-center"><strong>Log in</strong></h2>
         <p>Enter your email</p>
 				<%= f.input :email,
 				required: false,
@@ -16,7 +16,7 @@
 				input_html: { autocomplete: "current-password" },
 				label: false,
 				placeholder: "Password"%>
-				<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+				<%= f.input :remember_me, label_html: { class:"text-primary" },  as: :boolean if devise_mapping.rememberable? %>
 			</div>
 
 			<div class="form-actions">
