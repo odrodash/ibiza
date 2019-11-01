@@ -1,9 +1,9 @@
 <div class="card-product">
   <%= cl_image_tag product.photo %>
   <div class="card-product-infos">
-    <h2><%=  product.name %></h2>
+    <h2 id="title"><%=  product.name %></h2>
       <p><%= product.category %></p>
-      <p><%= product.description %></p>
+      <p id="subtitle"><%= product.description %></p>
   </div>
 </div>
 
