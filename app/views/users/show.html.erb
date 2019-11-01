@@ -25,7 +25,7 @@
     <div class="card-product">
       <%= cl_image_tag booking.product.photo %>
       <div class="card-product-infos">
-          <h2><%=  booking.product.name %></h2>
+          <h2><%=  truncate(booking.product.name, :length =>15) %></h2>
             <p><%= booking.product.category %></p>
             <p><%= truncate(booking.product.description, :length => 20) %></p>
       <%= link_to "Add a review", new_booking_review_path(booking), class: "btn btn-primary btn-sm" %>
